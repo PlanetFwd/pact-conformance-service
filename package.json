@@ -2,8 +2,16 @@
   "name": "pact-api-test-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
+  "bin": {
+    "pact-conformance-service": "./dist/scripts/run-tests-cli.js"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "clean": "rimraf ./dist",
     "build": "tsc && mkdir -p dist/schemas && cp src/schemas/*.yaml dist/schemas/",
     "dev": "ts-node-dev ./src/server.ts",
