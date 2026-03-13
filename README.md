@@ -6,6 +6,8 @@ PACT publishes  [Technical Specifications for PCF Data Exchange](https://docs.ca
 ### Access the tool
 Use of the tool is free and open to anyone. Sign up and start using the tool at https://services.carbon-transparency.org/
 
+To run the conformance test suite from the command line or in CI/CD (e.g. `npx @wbcsd/pact-conformance-service`), see [CLI Testing Examples](docs/cli-examples.md).
+
 ### Timeline
 - PACT released an MVP version of the service in March 2025, which can now be used for testing. 
 - PACT is releasing a production version of the tool in June 2025, which must be used to gain PACT Conformance status

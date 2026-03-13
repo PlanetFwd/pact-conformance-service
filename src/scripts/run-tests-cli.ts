@@ -166,7 +166,15 @@ Optional Options:
   --help, -h                   Show this help message
 
 Examples:
-  # Run V3.0 tests
+  # Run V3.0 tests (from published package)
+  npx @wbcsd/pact-conformance-service \\
+    --baseUrl https://api.example.com \\
+    --clientId myClientId \\
+    --clientSecret mySecret \\
+    --version V3.0 \\
+    --organizationName "My Company"
+
+  # Run V3.0 tests (from repo)
   npx tsx src/scripts/run-tests-cli.ts \\
     --baseUrl https://api.example.com \\
     --clientId myClientId \\

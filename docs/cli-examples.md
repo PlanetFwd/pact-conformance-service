@@ -1,8 +1,30 @@
 # CLI Testing Examples
 
-## Basic Usage
+## Running via npx (CI/CD)
 
-Run V3.0 conformance tests:
+Once the package is published as `@wbcsd/pact-conformance-service`, you can run the conformance suite without cloning the repo:
+
+```bash
+npx @wbcsd/pact-conformance-service \
+  --baseUrl https://api.example.com \
+  --clientId your-client-id \
+  --clientSecret your-client-secret \
+  --version V3.0 \
+  --organizationName "Your Organization"
+```
+
+Or install first and run the binary:
+
+```bash
+npm install @wbcsd/pact-conformance-service
+npx pact-conformance-service --baseUrl ... --clientId ... --clientSecret ... --version V3.0 --organizationName "Your Org"
+```
+
+No database or server env vars are required; only the CLI arguments above (and optional flags) are needed.
+
+## Basic Usage (from repo)
+
+Run V3.0 conformance tests from a clone of the repository:
 
 ```bash
 npm run cli -- \
@@ -68,6 +90,8 @@ npx ts-node src/scripts/run-tests-cli.ts \
 
 ```bash
 npm run cli -- --help
+# or when using the published package:
+npx @wbcsd/pact-conformance-service --help
 ```
 
 ## Notes
