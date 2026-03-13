@@ -24,8 +24,8 @@ const extractorCache = new Map<string, OpenApiSchemaExtractor>();
 // Helper function to get or create an extractor for a version
 const getExtractor = async (version: string): Promise<OpenApiSchemaExtractor> => {
   if (!extractorCache.has(version)) {
-    // Use path relative to the source directory since YAML files are not copied to dist
-    const yamlPath = path.resolve(__dirname, '..', '..', 'src', 'schemas', `openapi_v${version.replace('.', '_')}.yaml`);
+    // Resolve YAML next to this module (works from src/schemas in dev and dist/schemas when built)
+    const yamlPath = path.join(__dirname, `openapi_v${version.replace('.', '_')}.yaml`);
     extractorCache.set(version, await OpenApiSchemaExtractor.create(yamlPath));
   }
   return extractorCache.get(version)!;
