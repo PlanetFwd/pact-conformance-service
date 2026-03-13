@@ -3,6 +3,10 @@ import { Pool } from "pg";
 import { DB } from './types';
 import config from '../config';
 
+if (!config.DB_CONNECTION_STRING) {
+  throw new Error("DB_CONNECTION_STRING is required when using the database. Set it in the environment or .env.");
+}
+
 export const db = new Kysely<DB>({
     dialect: new PostgresDialect({
         pool: new Pool({ connectionString: config.DB_CONNECTION_STRING })
